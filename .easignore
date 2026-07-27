@@ -1,0 +1,9 @@
+node_modules/
+.expo/
+dist/
+static-build/
+*.log
+.DS_Store
+BUILD_APK.md
+scripts/
+server/

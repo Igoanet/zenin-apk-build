@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "ZENIN Mobile",
+    "slug": "zenin",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "mobile",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#05090e"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.zenin.mobile"
+    },
+    "android": {
+      "package": "com.zenin.mobile",
+      "backgroundColor": "#05090e",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#05090e"
+      },
+      "permissions": []
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png",
+      "backgroundColor": "#05090e"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://api-server-production-5907.up.railway.app"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e5216967-68ba-4bd8-a6ee-61e323a28300"
+      }
+    },
+    "owner": "zeninapps-team"
+  }
+}
