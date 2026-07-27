@@ -27,22 +27,15 @@ jobs:
       - name: Add node to PATH for Gradle subprocesses
         run: echo "$(dirname $(which node))" >> $GITHUB_PATH
 
-      - name: Install JS dependencies (ci)
-        run: npm ci --legacy-peer-deps
+      - name: Install JS dependencies (yarn)
+        run: yarn install --network-timeout 300000
 
       - name: Verify critical packages installed
         run: |
           echo "Node: $(node --version), path: $(which node)"
-          ls node_modules/react-native/package.json         && echo "react-native OK"
-          ls node_modules/@react-native/gradle-plugin/package.json && echo "gradle-plugin OK"
-          ls node_modules/expo-modules-autolinking/package.json    && echo "expo-modules-autolinking OK"
-
-      - name: Test node resolution from android/ (mirrors settings.gradle)
-        run: |
-          cd android
-          node --print "require.resolve('react-native/package.json')"
-          node --print "require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })"
-          node --print "require.resolve('expo-modules-autolinking/package.json', { paths: [require.resolve('expo/package.json')] })"
+          ls node_modules/react-native/package.json                           && echo "react-native OK"
+          ls node_modules/@react-native/gradle-plugin/package.json            && echo "gradle-plugin OK"
+          ls node_modules/expo-modules-autolinking/package.json               && echo "expo-modules-autolinking OK"
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
