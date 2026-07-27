@@ -23,10 +23,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+
+      - name: Add node to PATH for Gradle subprocesses
+        run: echo "$(dirname $(which node))" >> $GITHUB_PATH
 
       - name: Install JS dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
